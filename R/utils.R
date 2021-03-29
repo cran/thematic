@@ -4,7 +4,7 @@ adjust_color <- function(color, bg, fg, accent = NA) {
   if (length(color) > 1) {
     stop("Internal error: adjust_color() expects an input of length 1")
   }
-  if (is.na(color) || identical(color, "NA")) return(color)
+  if (is.na(color) || identical(color, "NA") || color == "0") return(color)
 
   # If a gray scale color, then the degree of gray determines
   # the mixing between fg (aka black) and bg (aka white)
@@ -128,10 +128,10 @@ attempt_with_device <- function(dev_fun, expr, fail_value = NULL) {
     stop("Internal error: dev_fun should be a function.")
   }
   file_arg <- grep("^file", names(formals(dev_fun)), value = TRUE)
-  if (length(file_arg) != 1) {
+  if (length(file_arg) == 0) {
     stop("Internal error: expect graphics device function to have a file/filename argument.")
   }
-  res <- try(do.call(dev_fun, rlang::set_names(list(tmp), file_arg)))
+  res <- try(do.call(dev_fun, rlang::set_names(list(tmp), file_arg[1])))
   if (inherits(res, "try-error")) {
     maybe_warn(
       "thematic tried but failed to open a graphics device. If plots don't render ",

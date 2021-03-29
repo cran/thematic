@@ -18,16 +18,39 @@ ggplot_build_set <- function() {
   ggplot_build <- getFromNamespace("ggplot_build", "ggplot2")
   .globals$ggplot_build <- getFromNamespace("ggplot_build.ggplot", "ggplot2")
   assign_in_namespace <- assignInNamespace
+  ensure_s3_methods_matrix()
   assign_in_namespace("ggplot_build.ggplot", ggthematic_build, "ggplot2")
+  if (is_installed("gganimate")) {
+    .globals$gganim_build <- getFromNamespace("ggplot_build.gganim", "gganimate")
+    formals(ggthematic_build)$ggplot_build <- .globals$gganim_build
+    assign_in_namespace("ggplot_build.gganim", ggthematic_build, "gganimate")
+  }
 }
 
 ggplot_build_restore <- function() {
   if (is.function(.globals$ggplot_build)) {
     ggplot_build <- getFromNamespace("ggplot_build", "ggplot2")
     assign_in_namespace <- assignInNamespace
+    ensure_s3_methods_matrix()
     assign_in_namespace("ggplot_build.ggplot", .globals$ggplot_build, "ggplot2")
     rm("ggplot_build", envir = .globals)
+    if (is.function(.globals$gganim_build)) {
+      assign_in_namespace("ggplot_build.gganim", .globals$gganim_build, "gganimate")
+      rm("gganim_build", envir = .globals)
+    }
   }
+}
+
+# When registerS3method() is called in an onLoad() hook, it causes
+# assignInNamespace() to no longer work for S3 methods because this
+# S3methods namespace info gets coerced into a list
+# (which assignInNamespace() isn't expecting). Thus, here, we make
+# sure that the info is a matrix before calling assignInNamespace()
+# https://github.com/rstudio/thematic/issues/90#issuecomment-780224962
+ensure_s3_methods_matrix <- function(pkg = "ggplot2") {
+  S3 <- .getNamespaceInfo(asNamespace(pkg), "S3methods")
+  S3 <- matrix(as.character(S3), nrow = nrow(S3), ncol = ncol(S3))
+  setNamespaceInfo(asNamespace(pkg), "S3methods", S3)
 }
 
 # N.B. If you make changes here, plotly might have to as well!
@@ -269,10 +292,10 @@ resolve_theme_inheritance <- function(p_theme) {
       parent_el <- p_theme[[this_parent]]
       kid_el <- p_theme[[this_kid]]
       # parent doesn't exist so do nothing
-      if (!length(parent_el)) {
+      if (is.null(parent_el)) {
         next
       }
-      p_theme[[this_kid]] <- if (length(kid_el)) {
+      p_theme[[this_kid]] <- if (!is.null(kid_el)) {
         # both parent & child exist
         ggplot2::merge_element(new = kid_el, old = parent_el)
       } else {

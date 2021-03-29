@@ -101,25 +101,41 @@ resolve_font_family <- function(type = c("base", "grid")) {
     }
 
     # Register Google Fonts cache
-    try_register_gfont_cache(family)
+    try_register_gfont_cache(family, systemfonts = is_ragg_device(dev_name))
     # If we can already render the font family, do no more!
     if (can_render(family, type, dev_fun, dev_name)) {
       break
     }
     # Download/register and try again
     if (font$install) {
-      try_gfont_download_and_register(family, font$quiet)
+      try_gfont_download_and_register(family, font$quiet, systemfonts = is_ragg_device(dev_name))
     }
     if (can_render(family, type, dev_fun, dev_name)) {
       break
+    }
+
+    # There's two scenarios that could cause a font to fail related to availability of a rendering device.
+    pkg_install_msg <- if (!is_installed("ragg") && !is_installed("showtext")) {
+      "Install ragg and/or showtext to render custom fonts. "
+    } else if (is_installed("ragg") & !is_ragg_device(dev_name)) {
+      "To render custom fonts, either use a ragg device or install the showtext package"
+    } else {
+      ""
+    }
+
+    if (nzchar(pkg_install_msg)) {
+      # If we have a problem related to loaded packages rendering the font then
+      # we want to just use the default font. Otherwise the plot when attempting
+      # to use a non-existent font and will crash with a bunch of error messages
+      # that bury our useful one above.
+      family <- ""
     }
 
     # Try our best to give informative warning
     maybe_warn(
       "It seems the current graphics device '", dev_name, "' ",
       "is unable to render the requested font family '", family, "'. ",
-      if (!is_installed("ragg") && !is_installed("showtext"))
-        "Install ragg and/or showtext to render custom fonts. ",
+      pkg_install_msg,
       id = "cant-render-font"
     )
   }
