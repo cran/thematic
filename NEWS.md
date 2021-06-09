@@ -1,3 +1,7 @@
+# thematic 0.1.2.1
+
+Patch release for vdiffr 1.0
+
 # thematic 0.1.2
 
 * Closed #89: `{thematic}` now works as expected with the `{gganimate}` package. (#96)
