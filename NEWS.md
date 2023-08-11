@@ -1,3 +1,9 @@
+# thematic 0.1.3
+
+* Closed #129: Fixed a bug with not being able override thematic inside geom_sf(). (#129)
+* Closed #120: A warning about a `length-one vector` is no longer thrown on R 4.2. (#121)
+* Closed #111: `{thematic}` no longer throws an error when used with `ggiraph::dsvg()`. (#112)
+
 # thematic 0.1.2.1
 
 Patch release for vdiffr 1.0

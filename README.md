@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![R build
-status](https://github.com/rstudio/thematic/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/thematic)
+status](https://github.com/rstudio/thematic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/thematic)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/thematic)](https://CRAN.R-project.org/package=thematic)
 [![Lifecycle:
@@ -60,7 +60,7 @@ install.packages("ragg")
 theming](https://rstudio.github.io/thematic/articles/auto.html) gives R
 plots the ability to style themselves inside [Shiny](#shiny) (via CSS),
 [RStudio](#rstudio) (via [RStudio
-themes](https://support.rstudio.com/hc/en-us/articles/115011846747-Using-RStudio-Themes)),
+themes](https://support.posit.co/hc/en-us/articles/115011846747-Using-RStudio-Themes)),
 and [R Markdown](#rmarkdown) (via
 [`{bslib}`](https://rstudio.github.io/bslib/)).
 
@@ -80,13 +80,19 @@ font:
 library(shiny)
 library(ggplot2)
 library(thematic)
+# In order for auto/custom fonts to work properly, you'll want
+# either the ragg (or showtext) package installed
+library(ragg)
 
-# Call thematic_shiny() prior to launching the app, to change 
+# If you want `{ragg}` to handle the font rendering in a Shiny app
+options(shiny.useragg = TRUE)
+
+# Call thematic_shiny() prior to launching the app, to change
 # R plot theming defaults for all the plots generated in the app
 thematic_shiny(font = "auto")
 
 ui <- fluidPage(
-  # bslib makes it easy to customize CSS styles for things 
+  # bslib makes it easy to customize CSS styles for things
   # rendered by the browser, like tabsetPanel()
   # https://rstudio.github.io/bslib
   theme = bslib::bs_theme(
@@ -199,20 +205,20 @@ learn more about how to customize those defaults.
 
 ## Learn more
 
--   See the [auto theming
-    article](https://rstudio.github.io/thematic/articles/auto.html) to
-    gain a more detailed understanding of how auto theming make styling
-    R plots easier in Shiny, R Markdown, and RStudio.
--   See the [custom themes
-    article](https://rstudio.github.io/thematic/articles/custom.html)
-    for more on `{thematic}`’s theming options as well as how they
-    interact with `{ggplot2}`, `{lattice}`, and `{base}`.
--   See the [fonts
-    article](https://rstudio.github.io/thematic/articles/fonts.html) for
-    more on using Google Fonts with `{thematic}`.
--   See the [scoping
-    article](https://rstudio.github.io/thematic/articles/scope.html) for
-    more about scoping `{thematic}` to individual plots.
+- See the [auto theming
+  article](https://rstudio.github.io/thematic/articles/auto.html) to
+  gain a more detailed understanding of how auto theming make styling R
+  plots easier in Shiny, R Markdown, and RStudio.
+- See the [custom themes
+  article](https://rstudio.github.io/thematic/articles/custom.html) for
+  more on `{thematic}`’s theming options as well as how they interact
+  with `{ggplot2}`, `{lattice}`, and `{base}`.
+- See the [fonts
+  article](https://rstudio.github.io/thematic/articles/fonts.html) for
+  more on using Google Fonts with `{thematic}`.
+- See the [scoping
+  article](https://rstudio.github.io/thematic/articles/scope.html) for
+  more about scoping `{thematic}` to individual plots.
 
 ## Run some examples
 
@@ -232,5 +238,5 @@ Below is a link to an **RStudio Cloud** instance with some ready to run
 `{thematic}` is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By
-[contributing](https://github.com/rstudio/thematic/blob/master/CONTRIBUTING.md)
+[contributing](https://github.com/rstudio/thematic/blob/main/CONTRIBUTING.md)
 to this project, you agree to abide by its terms.
