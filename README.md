@@ -9,8 +9,6 @@
 status](https://github.com/rstudio/thematic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/thematic)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/thematic)](https://CRAN.R-project.org/package=thematic)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 <!-- badges: end -->
 
 Simplified theming of `{ggplot2}`, `{lattice}`, and `{base}` R graphics.
@@ -60,7 +58,7 @@ install.packages("ragg")
 theming](https://rstudio.github.io/thematic/articles/auto.html) gives R
 plots the ability to style themselves inside [Shiny](#shiny) (via CSS),
 [RStudio](#rstudio) (via [RStudio
-themes](https://support.posit.co/hc/en-us/articles/115011846747-Using-RStudio-Themes)),
+themes](https://support.posit.co/hc/en-us/articles/115011846747-Using-Themes-in-the-RStudio-IDE)),
 and [R Markdown](#rmarkdown) (via
 [`{bslib}`](https://rstudio.github.io/bslib/)).
 

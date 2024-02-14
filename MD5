@@ -1,14 +1,14 @@
-58d36c0620dcb210f6717742f50c15a9 *DESCRIPTION
+42ecd4b35b171785343dd0cbb9a32cd4 *DESCRIPTION
 021d6f10c4563d0c192ed6d0c75121a5 *LICENSE
 0506d8de1775f7635adf0f36a7942a85 *NAMESPACE
-97f64d7fa2528cc092ea7c6f58ebd4de *NEWS.md
+fed94c200954b39c093df44e0b2bd7b1 *NEWS.md
 450818fda6c6d5591e8af52d751073f5 *R/auto.R
 a48edf942f56b86b0fb0ac5bb4917ea1 *R/base.R
 eaa937c8906ff3f239466f9bb3cd2f0a *R/cache.R
 96b38cf5afd4ab48c8bf2b1f2e9536cf *R/gfonts.R
-6f548780a87bcb1bc61423642804a90a *R/ggplot.R
+4f7cf352a01cf32fcc163e747b4b6b90 *R/ggplot.R
 f60773271afc517f9b9243f6586258d3 *R/globals.R
-d953580483b49e1be629298ae20f9f18 *R/hooks.R
+a195c7c60e3052413e9913e57f8f182f *R/hooks.R
 fb19978e9faf91c0202b12fe1a0b2d88 *R/knitr.R
 7f2db83386435260b1ec1a95dc9a7fc5 *R/lattice.R
 4e2a918c097eb380f2ec1bc133b880dd *R/onLoad.R
@@ -18,7 +18,7 @@ d66d04f4e0a2c5c63d2fd7449666d3f4 *R/thematic-package.R
 b7358c7bdc50b426923cb241e6f27310 *R/thematic.R
 2c0b9c2253e737e04a79f5076f87a0a3 *R/utils.R
 5f7f4b8902b586916cf9792da299b3a3 *R/view-shinytest.R
-e4afd40d87f87566afd9681d441badaa *README.md
+3450ba590ea9b6de0efba9ff9afc0296 *README.md
 abb5fe426e441114cf1fe9be07c83244 *inst/examples/ggthemes/app.R
 04d16ecd763b8627411b52e7bcac7213 *man/auto-config.Rd
 91a620bd412ffd47f2cba0fb48b7c070 *man/auto_resolve_theme.Rd
