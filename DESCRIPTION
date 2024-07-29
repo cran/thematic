@@ -1,7 +1,7 @@
 Package: thematic
 Title: Unified and Automatic 'Theming' of 'ggplot2', 'lattice', and
         'base' R Graphics
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(
     person("Carson", "Sievert", , "carson@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4958-2844")),
@@ -32,17 +32,17 @@ Config/Needs/check: shinytest, callr, sf, ggthemes, patchwork,
 Config/Needs/routine: ggrepel
 Config/Needs/website: GGally, RColorBrewer, patchwork, apreshill/quillt
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Collate: 'auto.R' 'base.R' 'cache.R' 'gfonts.R' 'ggplot.R' 'globals.R'
         'hooks.R' 'knitr.R' 'lattice.R' 'onLoad.R' 'thematic-package.R'
         'thematic-save-plot.R' 'thematic.R' 'utils.R'
         'view-shinytest.R'
 NeedsCompilation: no
-Packaged: 2024-02-12 22:15:20 UTC; cpsievert
+Packaged: 2024-07-25 15:50:58 UTC; cpsievert
 Author: Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>),
   Barret Schloerke [aut] (<https://orcid.org/0000-0001-9986-114X>),
   Joe Cheng [aut],
   Posit Software, PBC [cph, fnd]
 Maintainer: Carson Sievert <carson@posit.co>
 Repository: CRAN
-Date/Publication: 2024-02-14 00:20:03 UTC
+Date/Publication: 2024-07-29 15:50:02 UTC
