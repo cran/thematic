@@ -1,7 +1,7 @@
 Package: thematic
 Title: Unified and Automatic 'Theming' of 'ggplot2', 'lattice', and
         'base' R Graphics
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: c(
     person("Carson", "Sievert", , "carson@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4958-2844")),
@@ -27,22 +27,24 @@ Suggests: bslib, Cairo, curl, gganimate, ggiraph, htmltools, jsonlite,
         knitr, lattice, ragg, rmarkdown, shiny (>= 1.5.0), showtext,
         stats, svglite, sysfonts, systemfonts, testthat, vdiffr (>=
         1.0.0), withr
-Config/Needs/check: shinytest, callr, sf, ggthemes, patchwork,
+Config/testthat/edition: 3
+Config/Needs/check: shinytest2, callr, sf, ggthemes, patchwork,
         gridExtra, tinytex, devtools, rversions
-Config/Needs/routine: ggrepel
-Config/Needs/website: GGally, RColorBrewer, patchwork, apreshill/quillt
+Config/Needs/routine: ggrepel, r-lib/evaluate
+Config/Needs/website: GGally, RColorBrewer, patchwork,
+        apreshill/quillt, r-lib/evaluate
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 Collate: 'auto.R' 'base.R' 'cache.R' 'gfonts.R' 'ggplot.R' 'globals.R'
         'hooks.R' 'knitr.R' 'lattice.R' 'onLoad.R' 'thematic-package.R'
         'thematic-save-plot.R' 'thematic.R' 'utils.R'
-        'view-shinytest.R'
 NeedsCompilation: no
-Packaged: 2024-07-25 15:50:58 UTC; cpsievert
-Author: Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>),
-  Barret Schloerke [aut] (<https://orcid.org/0000-0001-9986-114X>),
+Packaged: 2025-06-16 15:31:30 UTC; cpsievert
+Author: Carson Sievert [aut, cre] (ORCID:
+    <https://orcid.org/0000-0002-4958-2844>),
+  Barret Schloerke [aut] (ORCID: <https://orcid.org/0000-0001-9986-114X>),
   Joe Cheng [aut],
   Posit Software, PBC [cph, fnd]
 Maintainer: Carson Sievert <carson@posit.co>
 Repository: CRAN
-Date/Publication: 2024-07-29 15:50:02 UTC
+Date/Publication: 2025-06-19 19:40:02 UTC
